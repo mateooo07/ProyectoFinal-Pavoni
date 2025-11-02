@@ -1,7 +1,11 @@
+// ============================================
+// ARCHIVO: src/componentes/Checkout.jsx (CON ACTUALIZACIÓN DE STOCK)
+// ============================================
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, doc, getDoc, updateDoc, writeBatch } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import './Checkout.css';
 
@@ -66,6 +70,50 @@ const Checkout = () => {
         return Object.keys(newErrors).length === 0;
     };
 
+    const checkStock = async () => {
+        try {
+        for (const item of cart) {
+            const docRef = doc(db, 'productos', item.id);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+            const currentStock = docSnap.data().stock;
+            
+            if (currentStock < item.quantity) {
+                alert(`Lo sentimos, solo hay ${currentStock} unidades disponibles de "${item.nombre}"`);
+                return false;
+            }
+            } else {
+            alert(`El producto "${item.nombre}" ya no está disponible`);
+            return false;
+            }
+        }
+        return true;
+        } catch (error) {
+        console.error('Error al verificar stock:', error);
+        return false;
+        }
+    };
+
+    const updateStock = async () => {
+        try {
+        const batch = writeBatch(db);
+
+        cart.forEach((item) => {
+            const productRef = doc(db, 'productos', item.id);
+            batch.update(productRef, {
+            stock: item.stock - item.quantity
+            });
+        });
+
+        await batch.commit();
+        console.log('Stock actualizado correctamente');
+        } catch (error) {
+        console.error('Error al actualizar stock:', error);
+        throw error;
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -76,6 +124,12 @@ const Checkout = () => {
         setLoading(true);
 
         try {
+        const stockAvailable = await checkStock();
+        if (!stockAvailable) {
+            setLoading(false);
+            return;
+        }
+
         const order = {
             buyer: {
             nombre: formData.nombre,
@@ -95,8 +149,13 @@ const Checkout = () => {
         };
 
         const docRef = await addDoc(collection(db, 'orders'), order);
+        
+        await updateStock();
+        
         setOrderId(docRef.id);
         clear();
+        
+        console.log('Orden creada exitosamente:', docRef.id);
         } catch (error) {
         console.error('Error al crear la orden:', error);
         alert('Hubo un error al procesar tu compra. Por favor, intenta nuevamente.');
