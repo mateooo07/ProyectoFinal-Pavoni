@@ -5,6 +5,9 @@
 ![React Router](https://img.shields.io/badge/React_Router-6.20.0-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
+**Estudiante:** Mateo Pavoni   
+**Curso / Comisión:** ReactJS / 88070
+
 E-commerce moderno de lámparas desarrollado con React y Firebase, ofreciendo una experiencia de compra fluida y elegante.
 
 ## Descripción
