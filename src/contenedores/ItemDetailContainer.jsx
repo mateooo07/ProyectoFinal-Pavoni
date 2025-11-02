@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
     const [producto, setProducto] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const docRef = doc(db, 'productos', id);
 
     useEffect(() => {
         setLoading(true);
