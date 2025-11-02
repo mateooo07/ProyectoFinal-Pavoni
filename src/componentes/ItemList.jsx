@@ -1,19 +1,13 @@
 import React from 'react';
 import Item from './Item';
+import './ItemList.css'; 
 
 const ItemList = ({ productos }) => {
     return (
-        <div
-        style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: '20px',
-        }}
-        >
-        {productos.map((producto) => (
-            <Item key={producto.id} producto={producto} />
-        ))}
+        <div className="product-list-grid"> 
+            {productos.map((producto) => (
+                <Item key={producto.id} producto={producto} /> 
+            ))}
         </div>
     );
 };
