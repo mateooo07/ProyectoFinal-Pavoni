@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import BarraNavegacion from './componentes/BarraNavegacion';
@@ -6,9 +6,20 @@ import ItemListContainer from './contenedores/ItemListContainer';
 import ItemDetailContainer from './contenedores/ItemDetailContainer';
 import Cart from './componentes/Cart';
 import Checkout from './componentes/Checkout';
+import { uploadProducts } from './utils/uploadProducts';
+import { cleanAllProducts } from './utils/cleanFirestore';
 import './App.css';
 
 const App = () => {
+    // useEffect(() => {
+    //     window.uploadProducts = uploadProducts;
+    //     window.cleanAllProducts = cleanAllProducts;
+        
+    //     console.log('Funciones disponibles en consola:');
+    //     console.log('window.uploadProducts()');
+    //     console.log('window.cleanAllProducts()');
+    // }, []);
+
     return (
         <CartProvider>
         <BrowserRouter>
