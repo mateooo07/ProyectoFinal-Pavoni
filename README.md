@@ -57,7 +57,7 @@ Antes de comenzar, asegúrate de tener instalado:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/lumina-lamparas.git
+git clone https://github.com/mateooo07/ProyectoFinal-Pavoni.git
 cd lumina-lamparas
 ```
 
