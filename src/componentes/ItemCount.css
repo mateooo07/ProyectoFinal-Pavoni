@@ -1,0 +1,79 @@
+.item-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.item-count-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 15px;
+  background-color: #f9f9f9;
+}
+
+.btn-count {
+  background-color: #ffb84d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-count:hover:not(:disabled) {
+  background-color: #ff9f1a;
+  transform: scale(1.1);
+}
+
+.btn-count:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.count-display {
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+  color: #333;
+}
+
+.btn-add-cart {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.btn-add-cart:hover:not(:disabled) {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-add-cart:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.stock-info {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}

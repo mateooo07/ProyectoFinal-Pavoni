@@ -1,0 +1,130 @@
+.item-detail-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 60vh;
+}
+
+.item-detail-card {
+  display: flex;
+  gap: 40px;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.item-detail-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-image {
+  font-size: 120px;
+  background: linear-gradient(135deg, #ffb84d 0%, #ff9f1a 100%);
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-detail-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.item-detail-title {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+}
+
+.item-detail-description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.item-detail-category {
+  font-size: 14px;
+  color: #888;
+}
+
+.item-detail-price {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff9f1a;
+  margin: 10px 0;
+}
+
+.item-detail-actions {
+  margin-top: 20px;
+}
+
+.item-added-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.success-message {
+  color: #4CAF50;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.btn-go-cart,
+.btn-continue {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-go-cart {
+  background-color: #ff9f1a;
+  color: white;
+}
+
+.btn-go-cart:hover {
+  background-color: #e68a00;
+  transform: translateY(-2px);
+}
+
+.btn-continue {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-continue:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .item-detail-card {
+    flex-direction: column;
+  }
+  
+  .placeholder-image {
+    font-size: 80px;
+  }
+}
