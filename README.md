@@ -58,7 +58,7 @@ Antes de comenzar, asegúrate de tener instalado:
 
 ```bash
 git clone https://github.com/mateooo07/ProyectoFinal-Pavoni.git
-cd lumina-lamparas
+cd ProyectoFinal-Pavoni
 ```
 
 ### 2. Instalar dependencias
